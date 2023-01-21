@@ -95,8 +95,7 @@ namespace ProjectGadai.API.Controllers
 
         [HttpGet]
         [Route("{search}")]
-        public async Task<ActionResult<IEnumerable<User>>> doSearchUser(/*[FromRoute] string search,*/
-            /*[FromQuery] UserSearch searchArg*/string search, string? searchId, string? searchName, 
+        public async Task<ActionResult<IEnumerable<User>>> doSearchUser(string search, string? searchId, string? searchName, 
              string? searchKet, string? searchHp)
         {
             
@@ -125,23 +124,6 @@ namespace ProjectGadai.API.Controllers
                 {
                     query = query.Where(e => e.nomor_hp.Contains(searchHp));
                 }
-
-                /*query = query.Where(e => e.user_id.ToString().Contains(searchArg.searchId) &&
-                            e.nama_user.Contains(searchArg.searchName) &&
-                            e.keterangan.Contains(searchArg.searchKet) &&
-                            e.nomor_hp.Contains(searchArg.searchHp));*/
-
-                /*query.Where(e => e.user_id.ToString().Contains(search[0]) &&
-                            e.nama_user.Contains(search[1]) &&
-                            e.keterangan.Contains(search[2]) &&
-                            e.nomor_hp.Contains(search[3]));*/
-
-
-                /*if (!string.IsNullOrEmpty(search))
-                {
-                    query = query.Where(e => e.nama_user.Contains(search[1]));
-                    query = query.Where(e => e.Use)
-                }*/
 
                 Console.WriteLine(query);
                 return await query.ToListAsync();
