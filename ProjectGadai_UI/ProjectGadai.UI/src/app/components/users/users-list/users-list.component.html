@@ -1,0 +1,155 @@
+<div class="container my-5">
+  <h3 class="mb-3">Users</h3>
+  <form class="row row-cols-2 g-3 my-3" method="get">
+    <div class="form-floating col">
+      <input
+        type="text"
+        [defaultValue]=""
+        class="form-control"
+        id="searchId"
+        name="searchId"
+        placeholder="Search..."
+        [(ngModel)]="searchId"
+      />
+      <label for="searchId">User Id</label>
+    </div>
+    <div class="form-floating col">
+      <input
+        type="text"
+        [defaultValue]=""
+        class="form-control"
+        id="searchName"
+        name="searchName"
+        placeholder="Search..."
+        [(ngModel)]="searchName"
+      />
+      <label for="sea">User Name</label>
+    </div>
+    <div class="form-floating col">
+      <input
+        type="text"
+        [defaultValue]=""
+        class="form-control"
+        id="searchKeterangan"
+        name="searchKeterangan"
+        placeholder="Search..."
+        [(ngModel)]="searchKeterangan"
+      />
+      <label for="searchKeterangan">Keterangan</label>
+    </div>
+    <div class="form-floating col">
+      <input
+        type="text"
+        [defaultValue]=""
+        class="form-control"
+        id="searchHp"
+        name="searchHp"
+        placeholder="Search..."
+        [(ngModel)]="searchHp"
+      />
+      <label for="searchHp">No. HP</label>
+    </div>
+  </form>
+  <div class="col-auto container-fluid">
+    <button
+      class="btn btn-primary btn-lg mx-3"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+      (click)="doSearchUser()"
+    >
+      Search
+    </button>
+    <button class="btn btn-primary btn-lg mx-3" (click)="clearInput()">
+      Kosongkan
+    </button>
+    <a class="btn btn-primary btn-lg mx-3" routerLink="add"> User Baru </a>
+  </div>
+  <!-- <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nama</th>
+        <th scope="col">No. HP</th>
+        <th scope="col">Keterangan</th>
+        <th scope="col">Maksimal Transaksi</th>
+        <th scope="col">Tanggal Masuk</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.user_id }}</td>
+        <td>{{ user.nama_user }}</td>
+        <td>{{ user.nomor_hp }}</td>
+        <td>{{ user.keterangan }}</td>
+        <td>{{ user.maks_transaksi | currency : "IDR" }}</td>
+        <td>{{ user.tanggal_masuk | date : "dd MMMM yyyy" }}</td>
+        <td>
+          <a
+            [routerLink]="['/users', 'edit', user.user_id]"
+            class="btn btn-primary"
+            >View</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+</div>
+
+<div class="modal" tabindex="-1" id="exampleModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content container-fluid">
+      <div class="modal-header">
+        <h5 class="modal-title">Hasil Pencarian</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="search?.length">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nama</th>
+                <th scope="col">No. HP</th>
+                <th scope="col">Keterangan</th>
+                <th scope="col">Maksimal Transaksi</th>
+                <th scope="col">Tanggal Masuk</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of search">
+                <td>{{ user.user_id }}</td>
+                <td>{{ user.nama_user }}</td>
+                <td>{{ user.nomor_hp }}</td>
+                <td>{{ user.keterangan }}</td>
+                <td>{{ user.maks_transaksi | currency : "IDR" }}</td>
+                <td>{{ user.tanggal_masuk | date : "dd MMMM yyyy" }}</td>
+                <td>
+                  <a
+                    [routerLink]="['/users', 'edit', user.user_id]"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    >View</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="!search?.length">
+          <h2>User Tidak Ditemukan</h2>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

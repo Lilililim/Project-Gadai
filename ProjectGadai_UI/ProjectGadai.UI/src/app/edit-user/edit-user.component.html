@@ -1,0 +1,85 @@
+<div class="container my-3">
+  <h1 class="mb-3">Edit User</h1>
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="doUpdate()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">ID</label>
+          <input
+            type="text"
+            class="form-control"
+            id="user_id"
+            name="user_id"
+            readonly
+            [(ngModel)]="userDetails.user_id"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Nama</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nama"
+            name="nama"
+            [(ngModel)]="userDetails.nama_user"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">No HP</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nomor_hp"
+            name="nomor_hp"
+            [(ngModel)]="userDetails.nomor_hp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Keterangan</label>
+          <textarea
+            type="text"
+            class="form-control"
+            id="keterangan"
+            name="keterangan"
+            [(ngModel)]="userDetails.keterangan"
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Maksimal Transaksi</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="makstransaksi"
+            name="makstransaksi"
+            [(ngModel)]="userDetails.maks_transaksi"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label"
+            >Tanggal Masuk</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="tanggal"
+            name="tanggal"
+            readonly
+            [(ngModel)]="userDetails.tanggal_masuk"
+          />
+        </div>
+        <div class="btn-group" role="group">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="doDelete(userDetails.user_id)"
+          >
+            Delete
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

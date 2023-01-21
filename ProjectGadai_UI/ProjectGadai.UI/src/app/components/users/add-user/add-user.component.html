@@ -1,0 +1,61 @@
+<div class="container my-3">
+  <h1 class="mb-3">Tambah User Baru</h1>
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="addUser()">
+        <div class="mb-3">
+          <label for="nama" class="form-label">Nama</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nama"
+            name="nama"
+            [(ngModel)]="addUserRequest.nama_user"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="nomor_hp" class="form-label">No HP</label>
+          <input
+            type="text"
+            class="form-control"
+            id="nomor_hp"
+            name="nomor_hp"
+            [(ngModel)]="addUserRequest.nomor_hp"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="keterangan" class="form-label">Keterangan</label>
+          <input
+            type="ematextil"
+            class="form-control"
+            id="keterangan"
+            name="keterangan"
+            [(ngModel)]="addUserRequest.keterangan"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="makstransaksi" class="form-label">Maksimal Transaksi</label>
+          <input
+            type="number"
+            class="form-control"
+            id="makstransaksi"
+            name="makstransaksi"
+            [(ngModel)]="addUserRequest.maks_transaksi"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="tanggal" class="form-label">Tanggal Masuk</label>
+          <input
+            type="text"
+            class="form-control"
+            id="tanggal"
+            name="tanggal"
+            [(ngModel)]="addUserRequest.tanggal_masuk"
+            readonly
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
